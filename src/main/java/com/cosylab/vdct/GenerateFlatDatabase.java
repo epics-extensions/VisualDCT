@@ -122,24 +122,20 @@ public class GenerateFlatDatabase
 
 		for (int i = 0; i < args.length; i++) {
 			switch (state) {
+
 			case 0:
+                if (args[i].equals("--")) {
+                    state = 1;
+                    break;
+                }
 
-				if (args[i].equals("--")) {
-					state = 1;
-
-					break;
-				}
-
-				if (args[i].startsWith("-")) {
+                if (args[i].startsWith("-")) {
 					if (args[i].equals("-d") || args[i].equals("--dbd-file")) { //dbd file
 						i++;
-
 						if (i >= args.length) {
 							System.err.println("Missing .dbd file name.");
-
 							return false;
 						}
-
 						dbdEntries.add(new DBDEntry(args[i]));
 						continue;
 					} else if (args[i].equals("--enable-capfast")) {
@@ -157,27 +153,23 @@ public class GenerateFlatDatabase
 					} else if (args[i].equals("--disable-macro-warnings")) {
 						Settings.getInstance().setDisableMacroWarnings(true);
 						continue;							
+
 					} else if (args[i].equals("-h") || args[i].equals("--help")) {
 						printHelp();
-
 						return false;
-						
 					} else if (args[i].equals("-v")
 					    || args[i].equals("--version")) {
 						printVersion();
-
 						return false;
 					} else {
 						System.err.println("Invalid parameter: " + args[i]+"\n");
 						printHelp();
-						
 						return false;
 					}
 				}
+                // Intentionally no break here
 
-				break;  // unreachable, but makes static code analysis happy
-
-                        case 1:
+            case 1:
 				vdbFile = new File(args[i]);
 				state = 2;
 
