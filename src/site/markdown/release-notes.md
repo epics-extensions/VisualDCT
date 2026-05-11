@@ -1,7 +1,13 @@
 # Release Notes
 
-## 2.8.4 (not released yet)
-[View diff](https://github.com/epics-extensions/VisualDCT/compare/v2.8.3...master)
+## 2.8.5 (not released yet)
+[View diff](https://github.com/epics-extensions/VisualDCT/compare/v2.8.4...master)
+
+## 2.8.4 (11 May 2026)
+[View diff](https://github.com/epics-extensions/VisualDCT/compare/v2.8.3...v2.8.4)
+
+ * Fix a bug in GenerateFlatDatabase introduced in v2.8.3
+ * Update versions of all dependencies and Maven plugins
 
 ## 2.8.3 (21 Jun 2022)
 [View diff](https://github.com/epics-extensions/VisualDCT/compare/v2.8.2...v2.8.3)
